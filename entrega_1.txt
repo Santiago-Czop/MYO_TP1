@@ -1,0 +1,7 @@
+El problema me parece algo sencillo de entender pero tal vez un poco complicado de perfeccionar su solución.
+Tengo 2 ideas para empezar. 
+
+La primer idea consiste en plantear el orden topológico con un grafo y resolverlo por allí. 
+Luego de pensarlo un poco, no creo que sirva.
+La segunda idea consiste en hacer algo relacionado a conjuntos disjuntos. 
+Me parece que por acá puedo encontrar una excelente solución y será por donde empezaré.
