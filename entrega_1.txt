@@ -5,3 +5,5 @@ La primer idea consiste en plantear el orden topológico con un grafo y resolver
 Luego de pensarlo un poco, no creo que sirva.
 La segunda idea consiste en hacer algo relacionado a conjuntos disjuntos. 
 Me parece que por acá puedo encontrar una excelente solución y será por donde empezaré.
+La idea es que si tengo 2 prendas que no pueden ir juntas, entonces les corresponden distintos conjuntos. 
+Y si tengo N prendas en un conjunto, no rinde separarlas en 2 lavados, por lo que las N se lavan juntas.
