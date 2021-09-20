@@ -1,8 +1,20 @@
+from os import rename
+from os import remove
+
+TIMES_TO_RUN = 1000
+
 def main():
-    incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
-    washing_sets = find_washing_sets(incompatibility_graph, times_dict)
-    generate_output(washing_sets)
-    evaluate_result(times_dict)
+    top_result = float("inf")
+    for i in range(TIMES_TO_RUN):
+        incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
+        washing_sets = find_washing_sets(incompatibility_graph, times_dict)
+        generate_output(washing_sets)
+        result = evaluate_result(times_dict)
+        if result < top_result:
+            keep_best_result()
+            top_result = result
+    print(f"Best Time: {top_result}")
+
 
 # Loads the file with the washing data.
 # Returns the graph of incompatibilities and the dict with the washing times    
@@ -67,7 +79,15 @@ def evaluate_result(times_dict):
     for k,v in washes.items():
         tot_time += v
 
-    print(f"Total Time: {tot_time}")
+    #print(f"Total Time: {tot_time}")
+    return tot_time
+
+def keep_best_result():
+    try:
+        rename("output.txt", "best_time.txt")
+    except FileExistsError:
+        remove("best_time.txt")
+        rename("output.txt", "best_time.txt")
 
 #Adds a new vertex with no edges to the graph
 def add_vertex(graph, v):

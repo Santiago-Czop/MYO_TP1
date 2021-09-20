@@ -30,3 +30,9 @@ Estuve pensando sobre el algoritmo y llegué a la conclusión de que es O(V*(V*E
 las incompatibilidades, aunque tal vez se puede encontrar mejor cota. También me di cuenta que no es óptimo
 pues en caso de haber dos prendas que tardan lo mismo, la que se quita podría no ser la óptima.
 Habría que encontrar la lógica, si es que existe, para decidir cual quitar.
+
+Terminé recurriendo a algo medio rústico, que es básicamente correr varias veces el algoritmo y quedarme con el mejor.
+Por lo visto el programa genera tiempos de entre 61 y 64, tal vez haya un óptimo incluso menor pero no pude encontrarlo.
+Voy a extender el programa para que se ejecute varias veces y guarde el mejor.
+Parece que el estado del programa mismo afecta al programa, porque ejecutandolo un par de veces manualmente se llega a 61 facil,
+pero corriendolo 1000 veces puede que no se encuentre. 
