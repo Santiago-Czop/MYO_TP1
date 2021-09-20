@@ -2,6 +2,7 @@ def main():
     incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
     washing_sets = find_washing_sets(incompatibility_graph, times_dict)
     generate_output(washing_sets)
+    evaluate_result(times_dict)
 
 # Loads the file with the washing data.
 # Returns the graph of incompatibilities and the dict with the washing times    
@@ -25,7 +26,7 @@ def find_washing_sets(inc_graph, times_dict):
     
     while len(to_be_washed_set) > 0:
         washing_set, to_be_washed_set = find_washing_set(to_be_washed_set, inc_graph, times_dict)
-        washing_sets.add(washing_set) 
+        washing_sets.add(frozenset(washing_set)) 
 
     return washing_sets
     
@@ -43,13 +44,30 @@ def find_washing_set(clothes_set, inc_graph, times_dict):
     return washing_set, incompatible_clothes  
 
 def generate_output(washing_sets):
-    wash = 1
-    for washing_set in washing_sets:
-        for cloth in washing_set:
-            with open("output.txt", "a") as output_file:
+    with open("output.txt", "w") as output_file:
+        wash = 1
+        for washing_set in washing_sets:
+            for cloth in washing_set:
                 output_file.write(f"{cloth} {wash}\n")
-        wash += 1
+            wash += 1
 
+def evaluate_result(times_dict):
+    washes = {}
+
+    with open("output.txt", "r") as output_file:
+        for line in output_file:
+            cloth, wash = line.rstrip('\n').split(' ')
+            if wash not in washes.keys():
+                washes[wash] = times_dict[cloth]
+            else:
+                if times_dict[cloth] > washes[wash]:
+                    washes[wash] = times_dict[cloth]
+
+    tot_time = 0
+    for k,v in washes.items():
+        tot_time += v
+
+    print(f"Total Time: {tot_time}")
 
 #Adds a new vertex with no edges to the graph
 def add_vertex(graph, v):
