@@ -8,3 +8,20 @@ Me parece que por acá puedo encontrar una excelente solución y será por donde
 La idea es que si tengo 2 prendas que no pueden ir juntas, entonces les corresponden distintos conjuntos. 
 Y si tengo N prendas en un conjunto, no rinde separarlas en 2 lavados, por lo que las N se lavan juntas.
 Adicionalmente, creo que la forma optima de encarar el ir uniendo sets es unir las prendas rapidas hacia las lentas.
+
+Tras pensar mucho con hoja y lapicera, encontre un algoritmo que aparenta encontrar soluciones óptimas.
+El algoritmo sería:
+-Pongo todos los elementos en un set
+-Agarro el más grande (lento) y quito todos los incompatibles
+-Agarro el segundo más grande y quito todos los incompatibles
+-Continúo hasta quitar todos los incompatibles.
+-El set resultante es parte de la solución.
+-Repito el algoritmo con todos los elementos que resultaron incompatibles.
+-Continúo hasta que todos tengan su set, incluso si están solos.
+
+La idea del algoritmo es literalmente opuesta a lo que pensé en un comienzo, pero tal vez por ser el inverso también 
+llega a la solución porque es invertir todo. Creo que va a ser lento, pero encontraría una buena solución.
+Mi lógica fue que tomo el más grande, que define siempre un tiempo de lavado, e intento poner todo lo que pueda poner
+en ese lavado. Si tengo por ejemplo 7 4 3, y el 4 y 3 no pueden ir juntos, entonces quito el 3, porque el 3 tarda menos lavandose solo.
+Así continuaría con todos los que sobran y de a poco voy encontrar lavados tan grandes como es posible, hasta definir todos.
+Voy a necesitar trabajar con conjuntos y grafos (para tener información de la incompatibilidad). 
