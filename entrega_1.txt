@@ -25,3 +25,8 @@ Mi lógica fue que tomo el más grande, que define siempre un tiempo de lavado, 
 en ese lavado. Si tengo por ejemplo 7 4 3, y el 4 y 3 no pueden ir juntos, entonces quito el 3, porque el 3 tarda menos lavandose solo.
 Así continuaría con todos los que sobran y de a poco voy encontrar lavados tan grandes como es posible, hasta definir todos.
 Voy a necesitar trabajar con conjuntos y grafos (para tener información de la incompatibilidad). 
+
+Estuve pensando sobre el algoritmo y llegué a la conclusión de que es O(V*(V*E)), donde V es la cantidad de prendas y E 
+las incompatibilidades, aunque tal vez se puede encontrar mejor cota. También me di cuenta que no es óptimo
+pues en caso de haber dos prendas que tardan lo mismo, la que se quita podría no ser la óptima.
+Habría que encontrar la lógica, si es que existe, para decidir cual quitar.
