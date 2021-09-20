@@ -1,6 +1,6 @@
 def main():
     incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
-    washing_sets = find_washing_sets(incompatibility_graph)
+    washing_sets = find_washing_sets(incompatibility_graph, times_dict)
     generate_output(washing_sets)
 
 # Loads the file with the washing data.
@@ -43,7 +43,13 @@ def find_washing_set(clothes_set, inc_graph, times_dict):
     return washing_set, incompatible_clothes  
 
 def generate_output(washing_sets):
-    pass
+    wash = 1
+    for washing_set in washing_sets:
+        for cloth in washing_set:
+            with open("output.txt", "a") as output_file:
+                output_file.write(f"{cloth} {wash}\n")
+        wash += 1
+
 
 #Adds a new vertex with no edges to the graph
 def add_vertex(graph, v):
