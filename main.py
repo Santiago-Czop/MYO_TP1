@@ -1,5 +1,6 @@
 from os import rename
 from os import remove
+from os import path
 import time
 
 
@@ -23,7 +24,7 @@ def main():
 def load_incompatibility_graph_and_times_dict():
     incompatibility_graph = {}
     times_dict = {}
-    with open("primer_problema.txt", "r") as my_file:
+    with open("segundo_problema.txt", "r") as my_file:
         for line in my_file:
             line = line.rstrip('\n').strip(' ')
             if line[0] == 'c': continue # A comment
@@ -68,6 +69,9 @@ def generate_output(washing_sets):
 def evaluate_result(times_dict, result_file="output.txt"):
     washes = {}
 
+    if not path.isfile(result_file):
+        return float("inf")
+    
     with open(result_file, "r") as output_file:
         for line in output_file:
             cloth, wash = line.rstrip('\n').split(' ')

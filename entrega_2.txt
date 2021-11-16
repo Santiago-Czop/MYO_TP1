@@ -3,5 +3,5 @@ Mi primer intento será usar el mismo código, tomar nota de la diferencia en pe
 Una observación es que correr al correr el programa varias veces manualmente se encuentra
 el mejor tiempo del primer problema (61) mucho más frecuente que al encerrar el programa en un loop que lo repite.
 Además es más rápido con cada iteración subsecuente, por lo cual no me sirve para benchmarking ni para mejorar el resultado.
-El tiempo promedio de 100 ejecuciones independientes es 0.0152. Tomando el algoritmo de la primera entrega como O(N^3), 
-estimo que para 385 prendas el tiempo de ejecución será menor a 2 minutos.  
+El algoritmo que aproxima el resultado, de la entrega 1, es extremadamente rápido tardando 0.055s en promedio para 385 prendas, 
+contra 0.0152s para 20 prendas.
