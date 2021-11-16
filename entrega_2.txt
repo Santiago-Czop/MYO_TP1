@@ -1,0 +1,2 @@
+Mi primera impresión es que el problema es igual pero muchísimo más grande en tamaño. 
+Mi primer intento será usar el mismo código, tomar nota de la diferencia en performance y trabajar a partir de ello.
