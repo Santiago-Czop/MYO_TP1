@@ -14,6 +14,7 @@ def main():
     if result < top_result:
         keep_best_result()
         top_result = result
+    print(f"Time: {result}")
     print(f"Best Time: {top_result}")
     end_time = time.perf_counter()
     log_time(end_time - start_time)     
