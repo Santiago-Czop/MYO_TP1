@@ -5,7 +5,7 @@ import time
 
 
 def main():
-    start_time = time.perf_counter()
+    # start_time = time.perf_counter()
     incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
     top_result = evaluate_result(times_dict, "best_time.txt")
     washing_sets = find_washing_sets(incompatibility_graph, times_dict)
@@ -16,9 +16,9 @@ def main():
         top_result = result
     print(f"Time: {result}")
     print(f"Best Time: {top_result}")
-    end_time = time.perf_counter()
-    log_time(end_time - start_time)     
-    print_avg_time()  
+    # end_time = time.perf_counter()
+    # log_time(end_time - start_time)     
+    # print_avg_time()  
 
 # Loads the file with the washing data.
 # Returns the graph of incompatibilities and the dict with the washing times    

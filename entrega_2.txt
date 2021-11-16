@@ -4,4 +4,4 @@ Una observación es que correr al correr el programa varias veces manualmente se
 el mejor tiempo del primer problema (61) mucho más frecuente que al encerrar el programa en un loop que lo repite.
 Además es más rápido con cada iteración subsecuente, por lo cual no me sirve para benchmarking ni para mejorar el resultado.
 El algoritmo que aproxima el resultado, de la entrega 1, es extremadamente rápido tardando 0.055s en promedio para 385 prendas, 
-contra 0.0152s para 20 prendas.
+contra 0.0152s para 20 prendas. Esto me hace pensar que la gran parte del tiempo de ejecución es la "preparación" del programa.
