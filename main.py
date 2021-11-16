@@ -1,20 +1,22 @@
 from os import rename
 from os import remove
+import time
 
-TIMES_TO_RUN = 1000
 
 def main():
-    top_result = float("inf")
-    for i in range(TIMES_TO_RUN):
-        incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
-        washing_sets = find_washing_sets(incompatibility_graph, times_dict)
-        generate_output(washing_sets)
-        result = evaluate_result(times_dict)
-        if result < top_result:
-            keep_best_result()
-            top_result = result
+    start_time = time.perf_counter()
+    incompatibility_graph, times_dict = load_incompatibility_graph_and_times_dict()
+    top_result = evaluate_result(times_dict, "best_time.txt")
+    washing_sets = find_washing_sets(incompatibility_graph, times_dict)
+    generate_output(washing_sets)
+    result = evaluate_result(times_dict)
+    if result < top_result:
+        keep_best_result()
+        top_result = result
     print(f"Best Time: {top_result}")
-
+    end_time = time.perf_counter()
+    log_time(end_time - start_time)     
+    print_avg_time()  
 
 # Loads the file with the washing data.
 # Returns the graph of incompatibilities and the dict with the washing times    
@@ -63,10 +65,10 @@ def generate_output(washing_sets):
                 output_file.write(f"{cloth} {wash}\n")
             wash += 1
 
-def evaluate_result(times_dict):
+def evaluate_result(times_dict, result_file="output.txt"):
     washes = {}
 
-    with open("output.txt", "r") as output_file:
+    with open(result_file, "r") as output_file:
         for line in output_file:
             cloth, wash = line.rstrip('\n').split(' ')
             if wash not in washes.keys():
@@ -115,5 +117,18 @@ def load_edge(graph, line):
 def load_time(times, line):
     _, cloth, time = line.split(' ')
     times[cloth] = int(time)
+
+def log_time(time):
+    with open("time_logs.txt", "a") as my_file:
+        my_file.write(f"{time}\n")
+
+def print_avg_time():
+    time_sum = 0
+    time_count = 0
+    with open("time_logs.txt", "r") as my_file:
+        for line in my_file:
+            time_sum += float(line.rstrip("\n"))
+            time_count += 1
+    print(f"Avg Time: {time_sum / time_count}")
 
 main()
