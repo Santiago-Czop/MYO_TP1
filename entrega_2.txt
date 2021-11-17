@@ -5,3 +5,7 @@ el mejor tiempo del primer problema (61) mucho más frecuente que al encerrar el
 Además es más rápido con cada iteración subsecuente, por lo cual no me sirve para benchmarking ni para mejorar el resultado.
 El algoritmo que aproxima el resultado, de la entrega 1, es extremadamente rápido tardando 0.055s en promedio para 385 prendas, 
 contra 0.0152s para 20 prendas. Esto me hace pensar que la gran parte del tiempo de ejecución es la "preparación" del programa.
+Escribi un programa de batch que ejecuta el programa N veces independientemente (para evitar el problema explicado en la entrega 1)
+y esto me permitió encontrar el tiempo 457 (una mejora de casi 40 unidades de tiempo respecto de mi primera ejecución).
+Al ver el ranking, veo que hay 3 personas con mucho mejores tiempos. 
+Intentaré codear un programa de backtracking para encontrar el óptimo. 
