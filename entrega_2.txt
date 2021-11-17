@@ -9,3 +9,5 @@ Escribi un programa de batch que ejecuta el programa N veces independientemente 
 y esto me permitió encontrar el tiempo 457 (una mejora de casi 40 unidades de tiempo respecto de mi primera ejecución).
 Al ver el ranking, veo que hay 3 personas con mucho mejores tiempos. 
 Intentaré codear un programa de backtracking para encontrar el óptimo. 
+Tras multiples horas intentando adaptar mi resolucion a backtracking, fallé. 
+Intentaré la misma idea que en main pero con un elemento de azar al elegir la prenda más lenta.
