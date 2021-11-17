@@ -11,7 +11,7 @@ def main():
         keep_best_result()
         top_result = result
     print(f"Time: {result}")
-    print(f"Best Time: {top_result}")
+    #print(f"Best Time: {top_result}")
 
 def find_washing_sets(inc_graph, times_dict):
     clothes_by_time = get_clothes_by_time(times_dict)
@@ -44,6 +44,7 @@ def find_washing_set(clothes_set, inc_graph, times_dict, clothes_by_time):
     incompatible_clothes = set()
     while len(clothes_set) > 0:
         slowest_time = times_dict[max(clothes_set, key=lambda v: times_dict[v])]
+        print(slowest_time)
         slowest_clothes = [k for k in clothes_set if times_dict[k] == slowest_time]
         slowest_cloth = slowest_clothes[random.randint(0, len(slowest_clothes) - 1)]
         for v in get_adyacents(inc_graph, slowest_cloth):
@@ -52,6 +53,7 @@ def find_washing_set(clothes_set, inc_graph, times_dict, clothes_by_time):
                 incompatible_clothes.add(v)
         clothes_set.remove(slowest_cloth)
         washing_set.add(slowest_cloth)      
+    print("SET")
     return washing_set, incompatible_clothes  
 
 def _find_washing_set(): 

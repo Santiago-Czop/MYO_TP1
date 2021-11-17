@@ -11,3 +11,7 @@ Al ver el ranking, veo que hay 3 personas con mucho mejores tiempos.
 Intentaré codear un programa de backtracking para encontrar el óptimo. 
 Tras multiples horas intentando adaptar mi resolucion a backtracking, fallé. 
 Intentaré la misma idea que en main pero con un elemento de azar al elegir la prenda más lenta.
+Tras otras miles de ejecuciones con la version de azar, logré reducir a 450 el tiempo total.
+Si no fuese porque hay 3 personas con mejor tiempo pensaría que estoy cerca del óptimo, pero 
+claramente mi algoritmo está lejos de aproximar el óptimo bien pues como mucho llegó a 450.
+Si fuese un buen algoritmo eventualmente produciría cualquier valor entre 273 y 450, pero jamás salen.
