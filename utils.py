@@ -1,3 +1,8 @@
+from os import rename
+from os import remove
+from os import path
+import time
+
 # Loads the file with the washing data.
 # Returns the graph of incompatibilities and the dict with the washing times    
 
@@ -39,3 +44,40 @@ def get_vertexes(graph):
 #Returns a set of the vertexes connected to v
 def get_adyacents(graph, v):
     return graph[v]
+
+def generate_output(washing_sets):
+    with open("output.txt", "w") as output_file:
+        wash = 1
+        for washing_set in washing_sets:
+            for cloth in washing_set:
+                output_file.write(f"{cloth} {wash}\n")
+            wash += 1
+
+def evaluate_result(times_dict, result_file="output.txt"):
+    washes = {}
+
+    if not path.isfile(result_file):
+        return float("inf")
+    
+    with open(result_file, "r") as output_file:
+        for line in output_file:
+            cloth, wash = line.rstrip('\n').split(' ')
+            if wash not in washes.keys():
+                washes[wash] = times_dict[cloth]
+            else:
+                if times_dict[cloth] > washes[wash]:
+                    washes[wash] = times_dict[cloth]
+
+    tot_time = 0
+    for k,v in washes.items():
+        tot_time += v
+
+    #print(f"Total Time: {tot_time}")
+    return tot_time
+
+def keep_best_result():
+    try:
+        rename("output.txt", "best_time.txt")
+    except FileExistsError:
+        remove("best_time.txt")
+        rename("output.txt", "best_time.txt")
