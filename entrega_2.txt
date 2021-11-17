@@ -14,4 +14,10 @@ Intentaré la misma idea que en main pero con un elemento de azar al elegir la p
 Tras otras miles de ejecuciones con la version de azar, logré reducir a 450 el tiempo total.
 Si no fuese porque hay 3 personas con mejor tiempo pensaría que estoy cerca del óptimo, pero 
 claramente mi algoritmo está lejos de aproximar el óptimo bien pues como mucho llegó a 450.
-Si fuese un buen algoritmo eventualmente produciría cualquier valor entre 273 y 450, pero jamás salen.
+Si fuese un buen algoritmo eventualmente produciría cualquier valor entre 273 y 450, pero jamás salen. 
+No entiendo por qué. No se si será una cuestión probabilística.
+Tuve una nueva idea. Supongamos que cada prenda que tarda el mismo tiempo puede lavarse junta. El tiempo total sería 210
+siguiendo una ecuación de sumatoria de Gauss. Por lo tanto, sería buena idea intentar que en cada subset, haya tantas
+prendas lentas como sea posible. ¿Cómo? Esto sería encontrar el clique más grande de tiempo 20, luego de 19 compatible con 
+los de 20 elegidos, luego los de 18 compatibles con 19 y 20 elegidos, etc. Intentaré implementar algo así.
+No tendré garantía de que el tiempo será mejor. Encontre este algoritmo online: Bron–Kerbosch Algorithm
