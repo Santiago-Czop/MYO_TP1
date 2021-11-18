@@ -25,3 +25,4 @@ Terminé el algoritmo (main_bronk.py), y dado que es exponencial es mucho más l
 y los resultados son muy similares pues se basa en la misma idea. Intentaré otras ideas y reportaré la mejor. 
 La primer idea es en vez de arrancar en tiempo 20 para el clique base, arrancar en el clique más grande de tiempo n.
 No puedo encontrar el clique más grande de todos pues mi compu no lo soporta pero si de cada tiempo.
+La otra idea es aproximar el clique más grande del grafo entero de alguna forma.
