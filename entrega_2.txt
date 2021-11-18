@@ -26,3 +26,6 @@ y los resultados son muy similares pues se basa en la misma idea. Intentaré otr
 La primer idea es en vez de arrancar en tiempo 20 para el clique base, arrancar en el clique más grande de tiempo n.
 No puedo encontrar el clique más grande de todos pues mi compu no lo soporta pero si de cada tiempo.
 La otra idea es aproximar el clique más grande del grafo entero de alguna forma.
+Tras mucha investigación descubrí que el problema es el de división de un grafo en cliques, que es 
+análogo al coloreo del complemento del grafo, que sería el grafo de incompatibilidad. Encontré una librería 
+famosa que lo resuelve de forma greedy (similar a mi solución del ejercicio 1) con distintas estrategias.
