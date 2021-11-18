@@ -75,6 +75,25 @@ def evaluate_result(times_dict, result_file="output.txt"):
     #print(f"Total Time: {tot_time}")
     return tot_time
 
+def print_washes_times(times_dict):
+    washes = {}
+
+    if not path.isfile("output.txt"):
+        return float("inf")
+    
+    with open("output.txt", "r") as output_file:
+        for line in output_file:
+            cloth, wash = line.rstrip('\n').split(' ')
+            if wash not in washes.keys():
+                washes[wash] = times_dict[cloth]
+            else:
+                if times_dict[cloth] > washes[wash]:
+                    washes[wash] = times_dict[cloth]
+    
+    for k,v in washes.items():
+        print(f"{v} - {k}")
+
+
 def keep_best_result():
     try:
         rename("output.txt", "best_time.txt")
