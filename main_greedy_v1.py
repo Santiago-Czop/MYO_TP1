@@ -22,9 +22,8 @@ def find_washing_sets(incompatibility_graph, times_dict):
         for v in vs:
             if v in incompatibility_graph.keys(): G.add_edge(k,v)
 
-    result = nx.coloring.greedy_color(G)
+    result = nx.coloring.greedy_color(G, strategy="smallest_last", interchange=True)
 
-    print(result)
     distinct_values = {v for v in result.values()}
     print(len(distinct_values))
 

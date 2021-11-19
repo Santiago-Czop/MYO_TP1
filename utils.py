@@ -45,6 +45,7 @@ def get_vertexes(graph):
 def get_adyacents(graph, v):
     return graph[v]
 
+# Generates output for the format of a set of washing sets
 def generate_output(washing_sets):
     with open("output.txt", "w") as output_file:
         wash = 1
@@ -53,6 +54,13 @@ def generate_output(washing_sets):
                 output_file.write(f"{cloth} {wash}\n")
             wash += 1
 
+# Generates output for the format of a colored graph
+def generate_output_coloring(washing_sets):
+    with open("output.txt", "w") as output_file:
+        for k,v in washing_sets.items():
+            output_file.write(f"{k} {v+1}\n")
+
+# Calculates the time spent
 def evaluate_result(times_dict, result_file="output.txt"):
     washes = {}
 
@@ -72,9 +80,9 @@ def evaluate_result(times_dict, result_file="output.txt"):
     for k,v in washes.items():
         tot_time += v
 
-    #print(f"Total Time: {tot_time}")
     return tot_time
 
+# Prints the time of each washing set
 def print_washes_times(times_dict):
     washes = {}
 
@@ -93,7 +101,7 @@ def print_washes_times(times_dict):
     for k,v in washes.items():
         print(f"{v} - {k}")
 
-
+# Replaces best_time.txt with output.txt
 def keep_best_result():
     try:
         rename("output.txt", "best_time.txt")

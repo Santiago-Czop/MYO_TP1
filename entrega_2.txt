@@ -29,3 +29,14 @@ La otra idea es aproximar el clique más grande del grafo entero de alguna forma
 Tras mucha investigación descubrí que el problema es el de división de un grafo en cliques, que es 
 análogo al coloreo del complemento del grafo, que sería el grafo de incompatibilidad. Encontré una librería 
 famosa que lo resuelve de forma greedy (similar a mi solución del ejercicio 1) con distintas estrategias.
+Tras confirmar que dicha librería provee una estrategia de coloreo del grafo de incompatibilidad que devuelve 270 (main_greedy_v1.py),
+llamado smallest_last, leí el paper en el cual se basa y me sorprendió que parece ser el mismo algoritmo que
+había imaginado yo (llamado largest_first, según el paper, y que se considera la forma natural de pensar el coloreo
+de un grafo) que resolvía el problema. La diferencia está en que tiene pequeñas refinaciones que le permiten ser 
+óptimo para ciertos tipos de grafo. El algoritmo colorea último a los vértices con menor grado,
+es decir, por último a los menos incompatibles. Además para calcular el grado de cada vértice, no considera los
+que ya les puso orden para colorear (primero se ordenan los vértices, luego se colorean). Esto es lo que causa
+que haya diferencia entre largest_first y smallest_last, pues serían iguales si no disminuimos el grado de los adyacentes
+al tomar un vértice. Lo implementaré yo mismo (main_greedy_v2.py), para aprender, por completitud y confirmación.
+El último detalle es que la librería permite intercambiar los colores mientras colorea para ver si consigue
+un color disponible, también descripto en el paper. Esto le garantiza 14 colores (lavados) siempre.
