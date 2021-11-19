@@ -59,9 +59,4 @@ def first_available(used_colors):
             return count
         count += 1
 
-def generate_output_coloring(washing_sets):
-    with open("output.txt", "w") as output_file:
-        for k,v in washing_sets.items():
-            output_file.write(f"{k} {v+1}\n")
-
 main()
