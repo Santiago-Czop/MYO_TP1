@@ -2,7 +2,10 @@ import networkx
 from networkx.drawing.nx_pylab import draw
 import bron_kerbosch
 import matplotlib.pyplot as plt
+import utils
 
+# Use esta funcion para dibujar pequeños grafos y sus conexiones,
+# para analizar los posibles cliques y confirmar mi algoritmo de bronk.
 def draw_graph(graph):
     g = networkx.Graph()
 

@@ -7,7 +7,6 @@ import copy
 
 def main():
     incompatibility_graph, times_dict = utils.load_incompatibility_graph_and_times_dict()
-    print(utils.evaluate_result(times_dict, "lavados_entregados_450.txt"))
     top_result = utils.evaluate_result(times_dict, "best_time.txt")
     washing_sets = find_washing_sets(incompatibility_graph)
     utils.generate_output_coloring(washing_sets)

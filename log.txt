@@ -1,5 +1,0 @@
-Primeras 10 ejecuciones: 468
-1000 ejecuciones: 463
-1000 ejecuciones: 461
-1000 ejecuciones: 459
-10000 ejecuciones: 457
