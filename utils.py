@@ -9,7 +9,7 @@ import time
 def load_incompatibility_graph_and_times_dict():
     incompatibility_graph = {}
     times_dict = {}
-    with open("segundo_problema.txt", "r") as my_file:
+    with open("tercer_problema.txt", "r") as my_file:
         for line in my_file:
             line = line.rstrip('\n').strip(' ')
             if line[0] == 'c': continue # A comment
