@@ -10,6 +10,7 @@ def main():
     top_result = utils.evaluate_result(times_dict, "best_time.txt")
     washing_sets = find_washing_sets(incompatibility_graph)
     utils.generate_output_coloring(washing_sets)
+    #utils.generate_output_cplex(washing_sets)
     result = utils.evaluate_result(times_dict)
     if result < top_result:
         utils.keep_best_result()
@@ -58,5 +59,6 @@ def first_available(used_colors):
         if count not in used_colors:
             return count
         count += 1
+
 
 main()

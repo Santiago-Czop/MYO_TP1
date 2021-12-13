@@ -60,6 +60,16 @@ def generate_output_coloring(washing_sets):
         for k,v in washing_sets.items():
             output_file.write(f"{k} {v+1}\n")
 
+def generate_output_cplex(washing_sets):
+    washing_list = []
+    with open("lavados_entrega_3_97.txt", "r") as input_file:
+        for line in input_file:
+            washing_list.append(tuple(line.rstrip('\n').split(" ")))
+            washing_list.sort(key=lambda t: t[0])
+        with open("output_for_cplex.txt", "w") as output_file:
+            for t in washing_list:
+                output_file.write(f"coloreoValido[{t[0]}] = {t[1]};\n")
+
 # Calculates the time spent
 def evaluate_result(times_dict, result_file="output.txt"):
     washes = {}
@@ -81,6 +91,7 @@ def evaluate_result(times_dict, result_file="output.txt"):
         tot_time += v
 
     return tot_time
+
 
 # Prints the time of each washing set
 def print_washes_times(times_dict):

@@ -1,0 +1,40 @@
+Para la tercer entrega tomé de punto de partida el algoritmo que encontré en la entrega 2. 
+A diferencia de en dicha entrega, ahora necesito el óptimo y aunque existe una bajísima probabilidad
+de que mi algoritmo de el óptimo, nunca tengo garantía. El algoritmo, pasadas las 2000+ ejecuciones,
+me devolvió un costo de 97 con 7 lavados lo cual será mi punto de partida para la solución con CPLEX.
+
+La primera ejecución con CPLEX mostró rapidamente nulo progreso. Tras parar el programa y condicionar
+la cantidad de colores a 7, encontré con una ejecución de 20 minutos (la cual estuvo 15 sin avanzar) 
+un nuevo óptimo de 93. Cargaré la solución inicial que encontré usando el algoritmo de la entrega 2
+a la función de buscar_solución_inicial para ver si esto mejora el resultado. Para hacer esto, hice
+una nueva función auxiliar que escribe a un archivo el código C necesario.
+
+Tras correr el programa teniendo una solución inicial, el programa imprime costos de 91 pero tras 
+varias media hora sigue sin haber terminado. Al momento de escribir esto, la última columna dice 20.**% 
+y continúa bajando rápidamente. Aguardaré un rato más por si cuando esa columna llega a 0% termina.
+
+Ejemplo:
+95000 59000       74.4303   249       91.0000       72.1425 20852357   20.72%
+96000 59555       77.4298   299       91.0000       72.2373 21053668   20.62% 
+97000 60195        cutoff             91.0000       72.4000 21277903   20.44%
+98000 60901    infeasible             91.0000       72.4831 21506535   20.35%
+
+Tras un rato extra, el programa solo bajó a 19.**% y allí se quedó por lo que cortaré la ejecución
+e intentaré con la restricción de simetría que sugirió el profesor.
+
+De esta forma, el programa terminó en cuestión de 150 segundos (2.5 minutos), con la diferencia de que
+la última columna decía 19% para cuando apareció por primera vez el costo de 91. Efectivamente, cuando
+el porcentaje llegó a 0% terminó el programa. Para convertir el output a lo aceptado por CPLEX, usé
+el feature de VSCode de editar múltiples lugares a la vez (Alt + Click.Izq) para hacerlo rápidamente.
+
+En conclusión del TP, reconozco que tuve 3 etapas (casualmente avanzando una por entrega). Primero
+estuve inventando, creando, haciendo lo que sea en papel para encontrar algoritmos útiles y que resuelvan
+no tan desastrosamente el problema. Luego tuve una etapa de investigación muy profunda que terminó 
+cuando encontré el nombre del problema (excepto el tema de los tiempos), en la cual encontré papers y 
+algoritmos mucho más poderosos y buenos que el mejor mío. Por último haciendo uso de herramientas aún 
+más poderosas como Simplex, pero con la base de un buen algoritmo previo, lo cual permitió resolver 
+el problema de forma óptima en cuestión de unos minutos. El proceso de aprendizaje resultó bastante 
+interesante y me quedo con curiosidad de qué otros algoritmos greedy habría podido aplicar que 
+den aproximaciones a la solución (en la entrega 2 investigué varios de ellos), y con las ganas de aplicar
+más capas de heurísticas sobre el algoritmo greedy (por ejemplo, para Smallest Last, desempatar por tiempo).
+También me interesaría haber programado el algoritmo de intercambios, por mera completitud.

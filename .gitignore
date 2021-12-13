@@ -2,3 +2,4 @@ output.txt
 best_time.txt
 time_logs.txt
 */__pycache__/
+*/.vs
